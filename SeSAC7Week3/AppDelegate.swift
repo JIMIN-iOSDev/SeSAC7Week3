@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,7 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // 앞으로 뜨는 모든 화면의 텍스트필드에 글자 크기 15, 배경 노란색, 센터로 쓸거야 -> AppDelegate에서 appearance 사용하면 애플에서 설정한 디폴트 기능들이 모두 바뀜
+        UITextField.appearance().backgroundColor = .yellow  // 전체 UI에 모두 적용 가능
+        UITextField.appearance().font = .boldSystemFont(ofSize: 15)
+        
+        // 1개의 뷰컨을 제외하고 모든 뷰컨에 키보드가 없다면? -> 여기 쓰는 게 적절하지는 않음
+        IQKeyboardManager.shared.isEnabled = true   // 모든 키보드에 적용됨
+        
         return true
     }
 
