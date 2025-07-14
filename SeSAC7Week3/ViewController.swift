@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast
 
 class ViewController: UIViewController {
 
@@ -22,6 +23,10 @@ class ViewController: UIViewController {
         print(7)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        view.makeToast("Hi", duration: 2, position: .top)   // 바탕 view 기준으로만 뜨는 거기 때문에 label에 쓰려고 하면 잘 안될거임
+    }
 
 
 }
